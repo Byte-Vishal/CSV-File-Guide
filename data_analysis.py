@@ -1,6 +1,5 @@
 import pandas as pd
 
-# Create Data
 data = {
     "Name": ["Vishal", "Arun", "Kiran"],
     "Age": [20, 21, 19],
@@ -9,10 +8,8 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Save to CSV
 df.to_csv("students.csv", index=False)
 
-# Read CSV
 df = pd.read_csv("students.csv")
 
 print("Data:")
