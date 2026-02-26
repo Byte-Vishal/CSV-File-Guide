@@ -14,9 +14,6 @@ print(df.dtypes)
 print("\n===== STATISTICAL SUMMARY =====")
 print(df.describe())
 
-print("\n===== NULL VALUES =====")
-print(df.isnull().sum())
-
 print("\n===== NAME AND MARKS =====")
 print(df[["Name", "Marks"]])
 
