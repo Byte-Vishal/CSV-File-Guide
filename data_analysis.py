@@ -1,23 +1,32 @@
 import pandas as pd
 
-data = {
-    "Name": ["Vishal", "Arun", "Kiran"],
-    "Age": [20, 21, 19],
-    "Marks": [85, 90, 78]
-}
-
-df = pd.DataFrame(data)
-
-df.to_csv("students.csv", index=False)
-
 df = pd.read_csv("students.csv")
 
-print("Data:")
+print("===== FULL DATA =====")
 print(df)
 
-print("\nBasic Attributes:")
-print("Shape:", df.shape)
-print("Columns:", df.columns)
+print("\n===== BASIC ATTRIBUTES =====")
+print("Shape (Rows, Columns):", df.shape)
+print("Column Names:", df.columns.tolist())
+print("\nData Types:")
+print(df.dtypes)
 
-print("\nNull Values:")
+print("\n===== STATISTICAL SUMMARY =====")
+print(df.describe())
+
+print("\n===== NULL VALUES =====")
 print(df.isnull().sum())
+
+print("\n===== NAME AND MARKS =====")
+print(df[["Name", "Marks"]])
+
+df["Pass"] = df["Marks"] >= 75
+
+print("\n===== DATA WITH PASS COLUMN =====")
+print(df)
+
+print("\n===== GENDER COUNT =====")
+print(df["Gender"].value_counts())
+
+print("\n===== DEPARTMENT WISE AVERAGE MARKS =====")
+print(df.groupby("Department")["Marks"].mean())
